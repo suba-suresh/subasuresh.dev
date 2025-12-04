@@ -72,7 +72,8 @@
             transition: color 0.3s;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a.active {
             color: var(--primary-color);
         }
 
@@ -310,14 +311,6 @@
 
         .project-header h3 {
             font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-type {
-            font-size: 0.85rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .project-body {
@@ -359,19 +352,6 @@
             color: var(--text-light);
         }
 
-        .project-metrics li {
-            padding: 0.3rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-metrics li::before {
-            content: '✓';
-            color: #10b981;
-            font-weight: bold;
-        }
-
         .project-links {
             display: flex;
             gap: 1rem;
@@ -392,14 +372,6 @@
         .project-link:hover {
             background: var(--secondary-color);
             transform: scale(1.05);
-        }
-
-        .project-link.secondary {
-            background: #64748b;
-        }
-
-        .project-link.secondary:hover {
-            background: #475569;
         }
 
         /* Experience Section */
@@ -477,32 +449,19 @@
             gap: 0.75rem;
         }
 
-        .timeline-item li::before {
-            content: '▹';
-            color: var(--primary-color);
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
         /* Contact Section */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            align-items: start;
         }
 
-        .contact-info {
+        .contact-info,
+        .contact-form {
             background: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
         }
 
         .contact-item {
@@ -517,21 +476,11 @@
             color: var(--primary-color);
             width: 40px;
             height: 40px;
+            background: #e0f2fe;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #e0f2fe;
-            border-radius: 50%;
-        }
-
-        .contact-item a {
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
-            color: var(--primary-color);
         }
 
         .social-links {
@@ -559,44 +508,8 @@
             transform: translateY(-5px);
         }
 
-        .contact-form {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
         .form-group {
             margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.875rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
         }
 
         /* Footer */
@@ -605,10 +518,6 @@
             color: white;
             text-align: center;
             padding: 2rem;
-        }
-
-        footer p {
-            color: #94a3b8;
         }
 
         /* Animations */
@@ -629,38 +538,16 @@
                 display: none;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content .tagline {
-                font-size: 1.2rem;
-            }
-
             .about-content,
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline {
-                padding-left: 2rem;
-            }
-
-            .timeline-item::before {
-                left: -2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
+
 <body>
+
     <!-- Navigation -->
     <nav>
         <div class="container">
@@ -676,12 +563,13 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Suba Suresh</h1>
             <p class="tagline">Software Developer & AI Automation Specialist</p>
-            <p>Building intelligent applications with C#, .NET, WPF, and cutting-edge AI automation technologies. Specialized in creating scalable enterprise solutions and voice-powered AI systems that drive real business impact.</p>
+            <p>Building intelligent applications with C#, .NET, WPF, and cutting-edge AI automation technologies.</p>
+
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -690,224 +578,215 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about">
         <h2>About Me</h2>
+
         <div class="about-content">
             <div class="about-text">
                 <h3>Hi, I'm Suba Suresh</h3>
-                <p>I'm a passionate Software Developer with expertise in <strong>C#, .NET, WPF, and SQL Server</strong>, specializing in building enterprise-grade desktop applications and innovative AI automation solutions.</p>
-                <p>With a unique background combining <strong>software development and quality assurance</strong>, I bring a quality-first mindset to every project. I'm certified as an <strong>ISTQB® Tester</strong> and <strong>Scrum Master (CSM®)</strong>, ensuring robust, well-tested solutions delivered in Agile environments.</p>
-                <p>My recent work focuses on <strong>AI voice automation systems</strong> that have achieved <strong>60% operational efficiency gains</strong> and <strong>zero booking conflicts</strong>, demonstrating my ability to leverage emerging technologies for tangible business outcomes.</p>
-                <p>I hold an <strong>M.Sc. in Computer Science with Project Management</strong> from the University of Bedfordshire, UK, and a <strong>B.Tech in Information Technology</strong>.</p>
+
+                <p>Software Developer with expertise in C#, .NET, WPF, SQL Server and AI automation.</p>
+                <p>Certified ISTQB Tester & Certified Scrum Master with strong QA + Dev background.</p>
+                <p>Delivered AI automation systems that achieved 60% efficiency improvements.</p>
             </div>
+
             <div class="stats">
-                <div class="stat-card">
-                    <h4>4+</h4>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-card">
-                    <h4>10+</h4>
-                    <p>Projects Completed</p>
-                </div>
-                <div class="stat-card">
-                    <h4>60%</h4>
-                    <p>Efficiency Improvement</p>
-                </div>
-                <div class="stat-card">
-                    <h4>2</h4>
-                    <p>Professional Certifications</p>
-                </div>
+                <div class="stat-card"><h4>4+</h4><p>Years Experience</p></div>
+                <div class="stat-card"><h4>10+</h4><p>Projects Completed</p></div>
+                <div class="stat-card"><h4>60%</h4><p>Efficiency Improvement</p></div>
+                <div class="stat-card"><h4>2</h4><p>Certifications</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills -->
     <section id="skills">
         <h2>Technical Skills</h2>
+
         <div class="skills-grid">
             <div class="skill-category">
                 <h3>Core Development</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">C#</span>
-                    <span class="skill-tag">.NET Framework</span>
-                    <span class="skill-tag">.NET Core</span>
                     <span class="skill-tag">WPF</span>
                     <span class="skill-tag">MVVM</span>
-                    <span class="skill-tag">XAML</span>
-                    <span class="skill-tag">WinForms</span>
-                    <span class="skill-tag">ASP.NET MVC</span>
-                    <span class="skill-tag">Web API</span>
+                    <span class="skill-tag">ASP.NET</span>
                 </div>
             </div>
+
             <div class="skill-category">
-                <h3>Database & ORM</h3>
+                <h3>Database</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">SQL Server</span>
-                    <span class="skill-tag">T-SQL</span>
                     <span class="skill-tag">Entity Framework</span>
-                    <span class="skill-tag">LINQ</span>
-                    <span class="skill-tag">Stored Procedures</span>
-                    <span class="skill-tag">Query Optimization</span>
                 </div>
             </div>
+
             <div class="skill-category">
                 <h3>AI & Automation</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">ElevenLabs Voice AI</span>
+                    <span class="skill-tag">ElevenLabs</span>
                     <span class="skill-tag">Vapi</span>
-                    <span class="skill-tag">Make.com</span>
                     <span class="skill-tag">Zapier</span>
-                    <span class="skill-tag">OpenAI APIs</span>
-                    <span class="skill-tag">Anthropic Claude</span>
-                    <span class="skill-tag">Webhooks</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Tools & Practices</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Visual Studio</span>
-                    <span class="skill-tag">Git/GitHub</span>
-                    <span class="skill-tag">Postman</span>
-                    <span class="skill-tag">JIRA</span>
-                    <span class="skill-tag">REST APIs</span>
-                    <span class="skill-tag">Agile/Scrum</span>
-                    <span class="skill-tag">CI/CD</span>
-                    <span class="skill-tag">TDD</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Cloud & Integration</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Azure</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">Google Calendar API</span>
-                    <span class="skill-tag">Gmail API</span>
-                    <span class="skill-tag">Airtable</span>
-                    <span class="skill-tag">JSON</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Web Development</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Bootstrap</span>
-                    <span class="skill-tag">Responsive Design</span>
+                    <span class="skill-tag">Make.com</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects">
         <h2>Featured Projects</h2>
+
         <div class="projects-grid">
+
+            <!-- Project -->
             <div class="project-card">
                 <div class="project-header">
-                    <div class="project-type">AI Automation</div>
-                    <h3>AI Restaurant Reservation System</h3>
+                    <h3>AI Reservation System</h3>
                 </div>
                 <div class="project-body">
-                    <p>Production-grade conversational AI system with ElevenLabs voice processing, achieving 24/7 automated restaurant reservations with zero booking conflicts.</p>
+                    <p>Automated reservation assistant using ElevenLabs + Zapier.</p>
+
                     <div class="project-tech">
-                        <span class="tech-badge">ElevenLabs</span>
-                        <span class="tech-badge">Zapier</span>
-                        <span class="tech-badge">Airtable</span>
+                        <span class="tech-badge">AI</span>
                         <span class="tech-badge">Webhooks</span>
-                        <span class="tech-badge">Email API</span>
                     </div>
-                    <div class="project-metrics">
-                        <ul>
-                            <li>60% operational cost reduction</li>
-                            <li>Zero double-booking conflicts</li>
-                            <li>24/7 automated availability</li>
-                            <li>&lt;2 second response times</li>
-                        </ul>
-                    </div>
+
                     <div class="project-links">
-                        <a href="https://github.com/suba-suresh/AI-Restaurant-Reservation-Management-System" target="_blank" class="project-link">View Code</a>
+                        <a href="https://github.com/suba-suresh/AI-Restaurant-Reservation-Management-System" class="project-link" target="_blank">View Code</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Project -->
             <div class="project-card">
                 <div class="project-header">
-                    <div class="project-type">AI Voice System</div>
                     <h3>VoiceAI Booking System</h3>
                 </div>
                 <div class="project-body">
-                    <p>Voice-driven reservation assistant integrating Vapi AI with Make.com orchestration, Google Calendar, and automated Gmail confirmations for Crown Street Food.</p>
+                    <p>Voice-driven reservation system with Vapi AI + Gmail API.</p>
+
                     <div class="project-tech">
                         <span class="tech-badge">Vapi AI</span>
-                        <span class="tech-badge">Make.com</span>
-                        <span class="tech-badge">Google Calendar</span>
                         <span class="tech-badge">Gmail API</span>
-                        <span class="tech-badge">NLP</span>
                     </div>
-                    <div class="project-metrics">
-                        <ul>
-                            <li>Natural language processing</li>
-                            <li>Real-time calendar sync</li>
-                            <li>Automated email confirmations</li>
-                            <li>100% booking accuracy</li>
-                        </ul>
-                    </div>
+
                     <div class="project-links">
-                        <a href="https://github.com/suba-suresh/VoiceAI-Reservation-Booking-System" target="_blank" class="project-link">View Code</a>
+                        <a href="https://github.com/suba-suresh/VoiceAI-Reservation-Booking-System" class="project-link" target="_blank">View Code</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Project -->
             <div class="project-card">
                 <div class="project-header">
-                    <div class="project-type">Desktop Application</div>
                     <h3>Sales Tracking System</h3>
                 </div>
                 <div class="project-body">
-                    <p>Enterprise WPF application with MVVM architecture featuring Sales Analytics, Salary Management, and Expense Tracking modules with optimized SQL Server backend.</p>
+                    <p>Enterprise WPF Application for sales & expenses tracking.</p>
+
                     <div class="project-tech">
-                        <span class="tech-badge">C#</span>
                         <span class="tech-badge">WPF</span>
-                        <span class="tech-badge">MVVM</span>
-                        <span class="tech-badge">Entity Framework</span>
                         <span class="tech-badge">SQL Server</span>
                     </div>
-                    <div class="project-metrics">
-                        <ul>
-                            <li>40% query performance improvement</li>
-                            <li>25% reduction in data errors</li>
-                            <li>Comprehensive CRUD operations</li>
-                            <li>Printable financial reports</li>
-                        </ul>
-                    </div>
+
                     <div class="project-links">
-                        <a href="https://github.com/suba-suresh" target="_blank" class="project-link">View Portfolio</a>
+                        <a href="https://github.com/suba-suresh" class="project-link" target="_blank">View Portfolio</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-type">Web Application</div>
-                    <h3>West Midlands Travel Website</h3>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <h2>Work Experience</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <h3>Software Developer Intern</h3>
+                <div class="company">Crown Street Food</div>
+                <div class="date">2024 - Present</div>
+                <ul>
+                    <li>Built AI voice reservation systems</li>
+                    <li>Developed WPF Sales Tracking System</li>
+                    <li>Created automation pipelines</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>QA Analyst</h3>
+                <div class="company">Solverines Technology</div>
+                <div class="date">2022 - 2024</div>
+                <ul>
+                    <li>Executed 500+ test cases</li>
+                    <li>Reduced defect resolution time by 35%</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+
+        <div class="contact-grid">
+
+            <div class="contact-info">
+                <div class="contact-item"><i>📧</i> <div><strong>Email</strong><br><a href="mailto:subasuresh8095@gmail.com">subasuresh8095@gmail.com</a></div></div>
+                <div class="contact-item"><i>📍</i> <div><strong>Location</strong><br>Royal Leamington Spa, UK</div></div>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/suba-suresh" target="_blank" class="social-link">in</a>
+                    <a href="https://github.com/suba-suresh" target="_blank" class="social-link">GH</a>
                 </div>
-                <div class="project-body">
-                    <p>Responsive travel planning platform with modern UI/UX design, mobile-first approach, and interactive features for exploring West Midlands destinations.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">HTML5</span>
-                        <span class="tech-badge">CSS3</span>
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">Bootstrap</span>
-                        <span class="tech-badge">Responsive</span>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send Me a Message</h3>
+
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" required>
                     </div>
-                    <div class="project-metrics">
-                        <ul>
-                            <li>Mobile-first responsive design</li>
-                            <li>Interactive travel planning</li>
-                            <li>Modern UI/UX patterns</li>
-                            <li>Cross-browser compatible</li>
-                        </ul>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
                     </div>
-                    <div class="project
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" required></textarea>
+                    </div>
+
+                    <button class="btn btn-primary" style="width:100%;">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Suba Suresh. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                t.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+</body>
+</html>
