@@ -3,666 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suba Suresh - Software Developer & AI Automation Specialist</title>
-    <meta name="description" content="Software Developer specializing in C#, .NET, WPF, and AI Automation. View my projects and experience.">
-    <script src="kit.fontawesome.com" crossorigin="anonymous"></script>
+    <title>Suba Suresh - Software Developer</title>
+    <meta name="description" content="Junior .NET Software Developer with QA background specializing in C#, .NET, WPF, and SQL Server.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --dark-bg: #0f172a;
-            --light-bg: #f8fafc;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --card-bg: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--light-bg);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        nav ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary-color) 100%);
-            color: white;
-            text-align: center;
-            padding: 6rem 2rem 4rem;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero-content .tagline {
-            font-size: 1.5rem;
-            color: #94a3b8;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            color: #cbd5e1;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.6s backwards;
-        }
-
-        .btn {
-            padding: 0.875rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--accent-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: var(--text-dark);
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--primary-color);
-            margin: 1rem auto 0;
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .stat-card h4 {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-card p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-category h3::before {
-            content: '▸';
-            font-size: 1.5rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: #e0f2fe;
-            color: var(--secondary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            padding: 2rem;
-            min-height: 140px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .project-header h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-type {
-            font-size: 0.85rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .project-body {
-            padding: 1.5rem;
-        }
-
-        .project-body p {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tech-badge {
-            background: #f1f5f9;
-            color: var(--text-dark);
-            padding: 0.3rem 0.8rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .project-metrics {
-            background: #f8fafc;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-
-        .project-metrics ul {
-            list-style: none;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .project-metrics li {
-            padding: 0.3rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-metrics li::before {
-            content: '✓';
-            color: #10b981;
-            font-weight: bold;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            flex: 1;
-            padding: 0.75rem;
-            background: var(--primary-color);
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .project-link:hover {
-            background: var(--secondary-color);
-            transform: scale(1.05);
-        }
-
-        .project-link.secondary {
-            background: #64748b;
-        }
-
-        .project-link.secondary:hover {
-            background: #475569;
-        }
-
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--primary-color);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3.75rem;
-            top: 2rem;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            border: 4px solid white;
-            box-shadow: 0 0 0 3px var(--primary-color);
-        }
-
-        .timeline-item h3 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item .company {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .timeline-item .date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-item ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .timeline-item li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .timeline-item li::before {
-            content: '▹';
-            color: var(--primary-color);
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .contact-info {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #e0f2fe;
-            border-radius: 50%;
-        }
-
-        .contact-item a {
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
-            color: var(--primary-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s;
-        }
-
-        .social-link:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-
-        .contact-form {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.875rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-bg);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        footer p {
-            color: #94a3b8;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
+            --primary-color: #2563eb; --secondary-color: #1e40af; --accent-color: #3b82f6;
+            --dark-bg: #0f172a; --light-bg: #f8fafc; --text-dark: #1e293b;
+            --text-light: #64748b; --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-dark); background-color: var(--light-bg); }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: var(--shadow); z-index: 1000; padding: 1rem 0; }
+        nav .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        nav ul { display: flex; gap: 2rem; list-style: none; }
+        nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-color); }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary-color) 100%); color: white; text-align: center; padding: 6rem 2rem 4rem; }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; animation: fadeInUp 0.8s ease; }
+        .hero-content .tagline { font-size: 1.5rem; color: #94a3b8; margin-bottom: 1rem; animation: fadeInUp 0.8s ease 0.2s backwards; }
+        .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; color: #cbd5e1; animation: fadeInUp 0.8s ease 0.4s backwards; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.6s backwards; }
+        .btn { padding: 0.875rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .btn-primary { background: var(--accent-color); color: white; }
+        .btn-primary:hover { background: var(--primary-color); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
+        .btn-secondary:hover { background: white; color: var(--primary-color); transform: translateY(-2px); }
+        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        h2 { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: var(--text-dark); position: relative; }
+        h2::after { content: ''; display: block; width: 80px; height: 4px; background: var(--primary-color); margin: 1rem auto 0; border-radius: 2px; }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .about-text h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary-color); }
+        .about-text p { margin-bottom: 1rem; color: var(--text-light); line-height: 1.8; }
+        .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .stat-card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow); text-align: center; transition: transform 0.3s; }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .stat-card h4 { font-size: 2rem; color: var(--primary-color); margin-bottom: 0.5rem; }
+        .stat-card p { color: var(--text-light); font-size: 0.9rem; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .skill-category { background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); transition: all 0.3s; }
+        .skill-category:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .skill-category h3 { font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--primary-color); display: flex; align-items: center; gap: 0.5rem; }
+        .skill-category h3::before { content: '▸'; font-size: 1.5rem; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-tag { background: #e0f2fe; color: var(--secondary-color); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .project-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.3s; }
+        .project-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .project-header { background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); color: white; padding: 2rem; min-height: 140px; display: flex; flex-direction: column; justify-content: center; }
+        .project-header h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .project-type { font-size: 0.85rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
+        .project-body { padding: 1.5rem; }
+        .project-body p { color: var(--text-light); margin-bottom: 1rem; line-height: 1.6; }
+        .project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+        .tech-badge { background: #f1f5f9; color: var(--text-dark); padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+        .project-metrics { background: #f8fafc; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+        .project-metrics ul { list-style: none; font-size: 0.9rem; color: var(--text-light); }
+        .project-metrics li { padding: 0.3rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .project-metrics li::before { content: '✓'; color: #10b981; font-weight: bold; }
+        .project-links { display: flex; gap: 1rem; }
+        .project-link { flex: 1; padding: 0.75rem; background: var(--primary-color); color: white; text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; }
+        .project-link:hover { background: var(--secondary-color); transform: scale(1.05); }
+        .timeline { position: relative; padding-left: 3rem; }
+        .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--primary-color); }
+        .timeline-item { position: relative; margin-bottom: 3rem; background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); transition: all 0.3s; }
+        .timeline-item:hover { transform: translateX(10px); box-shadow: var(--shadow-lg); }
+        .timeline-item::before { content: ''; position: absolute; left: -3.75rem; top: 2rem; width: 20px; height: 20px; border-radius: 50%; background: var(--primary-color); border: 4px solid white; box-shadow: 0 0 0 3px var(--primary-color); }
+        .timeline-item h3 { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 0.5rem; }
+        .timeline-item .company { font-size: 1.1rem; color: var(--text-dark); font-weight: 600; margin-bottom: 0.3rem; }
+        .timeline-item .date { color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem; }
+        .timeline-item ul { list-style: none; margin-top: 1rem; }
+        .timeline-item li { padding: 0.5rem 0; color: var(--text-light); display: flex; gap: 0.75rem; }
+        .timeline-item li::before { content: '▹'; color: var(--primary-color); font-weight: bold; flex-shrink: 0; }
+        .contact-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+        .contact-info { background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); }
+        .contact-info h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+        .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .contact-item i { font-size: 1.5rem; color: var(--primary-color); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: #e0f2fe; border-radius: 50%; }
+        .contact-item a { color: var(--text-dark); text-decoration: none; transition: color 0.3s; }
+        .contact-item a:hover { color: var(--primary-color); }
+        .social-links { display: flex; gap: 1rem; margin-top: 2rem; }
+        .social-link { width: 50px; height: 50px; background: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.5rem; transition: all 0.3s; }
+        .social-link:hover { background: var(--secondary-color); transform: translateY(-5px); }
+        footer { background: var(--dark-bg); color: white; text-align: center; padding: 2rem; }
+        footer p { color: #94a3b8; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content .tagline {
-                font-size: 1.2rem;
-            }
-
-            .about-content,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline {
-                padding-left: 2rem;
-            }
-
-            .timeline-item::before {
-                left: -2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
+            nav ul { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content .tagline { font-size: 1.2rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: 1fr; }
+            .timeline { padding-left: 2rem; }
+            .timeline-item::before { left: -2.5rem; }
+            h2 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
             <div class="logo">SS</div>
@@ -677,12 +116,11 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Suba Suresh</h1>
-            <p class="tagline">Software Developer & AI Automation Specialist</p>
-            <p>Building intelligent applications with C#, .NET, WPF, and cutting-edge AI automation technologies. Specialized in creating scalable enterprise solutions and voice-powered AI systems that drive real business impact.</p>
+            <p class="tagline">Junior .NET Software Developer</p>
+            <p>Building reliable backend systems with C#, .NET, WPF, and SQL Server. Bringing 4+ years of combined QA and development experience with a focus on writing maintainable code and delivering tested, production-ready features.</p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -691,322 +129,215 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
         <div class="about-content">
             <div class="about-text">
-                <h3>Hi, I'm Suba Suresh</h3>
-                <p>I'm a passionate Software Developer with expertise in <strong>C#, .NET, WPF, and SQL Server</strong>, specializing in building enterprise-grade desktop applications and innovative AI automation solutions.</p>
-                <p>With a unique background combining <strong>software development and quality assurance</strong>, I bring a quality-first mindset to every project. I'm certified as an <strong>ISTQB® Tester</strong> and <strong>Scrum Master (CSM®)</strong>, ensuring robust, well-tested solutions delivered in Agile environments.</p>
-                <p>My recent work focuses on <strong>AI voice automation systems</strong> that have achieved <strong>60% operational efficiency gains</strong> and <strong>zero booking conflicts</strong>, demonstrating my ability to leverage emerging technologies for tangible business outcomes.</p>
-                <p>I hold an <strong>M.Sc. in Computer Science with Project Management</strong> from the University of Bedfordshire, UK, and a <strong>B.Tech in Information Technology</strong>.</p>
+                <h3>Junior .NET Developer with QA Background</h3>
+                <p>I'm a Software Developer with 4+ years of combined experience in QA and development, working primarily with <strong>C#, .NET Framework, WPF, and SQL Server</strong>. I transitioned from QA into development, which gives me a strong foundation in understanding how applications break and how to write more defensive, reliable code.</p>
+                <p>My development work focuses on building <strong>backend features, RESTful APIs, and WPF desktop applications</strong> following MVVM patterns. I'm comfortable working with existing codebases, writing and optimizing SQL queries, and collaborating in Agile teams using Git for version control.</p>
+                <p>I hold an <strong>ISTQB® Certified Tester</strong> qualification and <strong>Certified ScrumMaster (CSM®)</strong>, along with an M.Sc. in Computer Science with Project Management from the University of Bedfordshire. I'm motivated to continue growing my skills in backend development and contribute to high-performing engineering teams.</p>
             </div>
             <div class="stats">
-                <div class="stat-card">
-                    <h4>4+</h4>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-card">
-                    <h4>5+</h4>
-                    <p>Projects Completed</p>
-                </div>
-                <div class="stat-card">
-                    <h4>60%</h4>
-                    <p>Efficiency Improvement</p>
-                </div>
-                <div class="stat-card">
-                    <h4>2</h4>
-                    <p>Professional Certifications</p>
-                </div>
+                <div class="stat-card"><h4>4+</h4><p>Years Combined Experience</p></div>
+                <div class="stat-card"><h4>500+</h4><p>Test Cases Designed</p></div>
+                <div class="stat-card"><h4>C# / .NET</h4><p>Primary Tech Stack</p></div>
+                <div class="stat-card"><h4>ISTQB</h4><p>Certified Tester</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills">
         <h2>Technical Skills</h2>
         <div class="skills-grid">
             <div class="skill-category">
-                <h3>Core Development</h3>
+                <h3>Backend Development</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">C#</span>
                     <span class="skill-tag">.NET Framework</span>
-                    <span class="skill-tag">.NET Core</span>
-                    <span class="skill-tag">WPF</span>
-                    <span class="skill-tag">MVVM</span>
-                    <span class="skill-tag">XAML</span>
-                    <span class="skill-tag">WinForms</span>
                     <span class="skill-tag">ASP.NET MVC</span>
-                    <span class="skill-tag">Web API</span>
+                    <span class="skill-tag">ASP.NET Web API</span>
+                    <span class="skill-tag">RESTful APIs</span>
+                    <span class="skill-tag">JSON</span>
+                    <span class="skill-tag">Async/Await</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h3>Database & ORM</h3>
+                <h3>Desktop Applications</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">WPF</span>
+                    <span class="skill-tag">MVVM Pattern</span>
+                    <span class="skill-tag">XAML</span>
+                    <span class="skill-tag">Data Binding</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Database & Data Access</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">SQL Server</span>
                     <span class="skill-tag">T-SQL</span>
+                    <span class="skill-tag">Stored Procedures</span>
                     <span class="skill-tag">Entity Framework</span>
                     <span class="skill-tag">LINQ</span>
-                    <span class="skill-tag">Stored Procedures</span>
-                    <span class="skill-tag">Query Optimization</span>
+                    <span class="skill-tag">ADO.NET</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h3>AI & Automation</h3>
+                <h3>Development Practices</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">ElevenLabs Voice AI</span>
-                    <span class="skill-tag">Vapi</span>
-                    <span class="skill-tag">Make.com</span>
-                    <span class="skill-tag">Zapier</span>
-                    <span class="skill-tag">OpenAI APIs</span>
-                    <span class="skill-tag">Anthropic Claude</span>
-                    <span class="skill-tag">Webhooks</span>
+                    <span class="skill-tag">OOP Principles</span>
+                    <span class="skill-tag">SOLID</span>
+                    <span class="skill-tag">MVC Architecture</span>
+                    <span class="skill-tag">Dependency Injection</span>
+                    <span class="skill-tag">Unit Testing</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h3>Tools & Practices</h3>
+                <h3>Tools & Version Control</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Visual Studio</span>
-                    <span class="skill-tag">Git/GitHub</span>
+                    <span class="skill-tag">Git / GitHub</span>
                     <span class="skill-tag">Postman</span>
-                    <span class="skill-tag">JIRA</span>
-                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">Jira</span>
+                    <span class="skill-tag">Azure (exposure)</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Testing & QA</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">API Testing</span>
+                    <span class="skill-tag">Integration Testing</span>
+                    <span class="skill-tag">Regression Testing</span>
+                    <span class="skill-tag">UAT</span>
                     <span class="skill-tag">Agile/Scrum</span>
-                    <span class="skill-tag">CI/CD</span>
-                    <span class="skill-tag">TDD</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Cloud & Integration</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Azure</span>
-                    <span class="skill-tag">Google Calendar API</span>
-                    <span class="skill-tag">Gmail API</span>
-                    <span class="skill-tag">Airtable</span>
-                    <span class="skill-tag">JSON</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Web Development</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Bootstrap</span>
-                    <span class="skill-tag">Responsive Design</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <h2>Featured Projects</h2>
         <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-type">Desktop Application</div>
+                    <h3>Enterprise Sales Tracking System</h3>
+                </div>
+                <div class="project-body">
+                    <p>WPF desktop application for sales and financial tracking following MVVM pattern. Implemented backend logic, database design, and optimized SQL queries for improved performance.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">C#</span>
+                        <span class="tech-badge">WPF</span>
+                        <span class="tech-badge">MVVM</span>
+                        <span class="tech-badge">SQL Server</span>
+                        <span class="tech-badge">Stored Procedures</span>
+                    </div>
+                    <div class="project-metrics">
+                        <ul>
+                            <li>Layered architecture for maintainability</li>
+                            <li>Input validation and error handling</li>
+                            <li>Optimized database queries</li>
+                            <li>MVVM design pattern implementation</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/suba-suresh" target="_blank" class="project-link">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-type">API Integration</div>
+                    <h3>AI Restaurant Reservation System</h3>
+                </div>
+                <div class="project-body">
+                    <p>Built RESTful API integration platform connecting multiple third-party services including OpenAI, ElevenLabs, Google Calendar, and Gmail APIs using OAuth 2.0 authentication.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">REST APIs</span>
+                        <span class="tech-badge">OpenAI API</span>
+                        <span class="tech-badge">OAuth 2.0</span>
+                        <span class="tech-badge">Webhooks</span>
+                        <span class="tech-badge">Azure Functions</span>
+                    </div>
+                    <div class="project-metrics">
+                        <ul>
+                            <li>Third-party API integration and authentication</li>
+                            <li>Webhook handlers for event processing</li>
+                            <li>Error handling and retry logic</li>
+                            <li>Cloud deployment on Azure</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/suba-suresh/AI-Restaurant-Reservation-Management-System" target="_blank" class="project-link">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <div class="project-type">Web Application</div>
                     <h3>West Midlands Travel Website</h3>
                 </div>
                 <div class="project-body">
-                    <p>Responsive travel planning platform with modern UI/UX design, mobile-first approach, and interactive features for exploring West Midlands destinations.</p>
+                    <p>Responsive web application with RESTful API integration for real-time travel data. Built with modern web standards and mobile-first design approach.</p>
                     <div class="project-tech">
                         <span class="tech-badge">HTML5</span>
                         <span class="tech-badge">CSS3</span>
                         <span class="tech-badge">JavaScript</span>
                         <span class="tech-badge">Bootstrap</span>
-                        <span class="tech-badge">Responsive</span>
+                        <span class="tech-badge">REST API</span>
                     </div>
                     <div class="project-metrics">
                         <ul>
-                            <li>Mobile-first responsive design</li>
-                            <li>Interactive travel planning</li>
-                            <li>Modern UI/UX patterns</li>
-                            <li>Cross-browser compatible</li>
+                            <li>Asynchronous API calls and JSON parsing</li>
+                            <li>Responsive, mobile-first design</li>
+                            <li>Cross-browser compatibility</li>
+                            <li>Dynamic content updates</li>
                         </ul>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/suba-suresh/weather-web-app" target="_blank" class="project-link">View Portfolio</a>
+                        <a href="https://github.com/suba-suresh/weather-web-app" target="_blank" class="project-link">View on GitHub</a>
                     </div>
                 </div>
             </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-type">Data Management</div>
-                    <h3>Client Intake Module</h3>
-                </div>
-                <div class="project-body">
-                    <p>WinForms application with SQL Server integration for streamlined client onboarding, featuring form validation and automated workflows.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">C#</span>
-                        <span class="tech-badge">WinForms</span>
-                        <span class="tech-badge">SQL Server</span>
-                        <span class="tech-badge">Entity Framework</span>
-                    </div>
-                    <div class="project-metrics">
-                        <ul>
-                            <li>25% reduction in data entry errors</li>
-                            <li>200+ client records processed</li>
-                            <li>99.9% data accuracy</li>
-                            <li>Robust validation system</li>
-                        </ul>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/suba-suresh" target="_blank" class="project-link">View Portfolio</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-type">Web Tools</div>
-                    <h3>Additional Projects</h3>
-                </div>
-                <div class="project-body">
-                    <p>Collection of web applications including Weather App (API integration), Resume Matcher Tool (AI-powered), interactive games, and more.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">APIs</span>
-                        <span class="tech-badge">HTML/CSS</span>
-                        <span class="tech-badge">AI Integration</span>
-                    </div>
-                    <div class="project-metrics">
-                        <ul>
-                            <li>Weather App with live updates</li>
-                            <li>AI-powered resume matching</li>
-                            <li>Interactive gaming projects</li>
-                            <li>Multiple API integrations</li>
-                        </ul>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/suba-suresh/weather-web-app" target="_blank" class="project-link">View Portfolio</a>
-                    </div>
-                </div>
-            </div>
-
-            
-               <div class="project-card">
-                <div class="project-header">
-                    <div class="project-type">AI Automation</div>
-                    <h3>AI Restaurant Reservation System</h3>
-                </div>
-                <div class="project-body">
-                    <p>Production-grade conversational AI system with ElevenLabs voice processing, achieving 24/7 automated restaurant reservations with zero booking conflicts.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">ElevenLabs</span>
-                        <span class="tech-badge">Zapier</span>
-                        <span class="tech-badge">Airtable</span>
-                        <span class="tech-badge">Webhooks</span>
-                        <span class="tech-badge">Email API</span>
-                    </div>
-                    <div class="project-metrics">
-                        <ul>
-                            <li>60% operational cost reduction</li>
-                            <li>Zero double-booking conflicts</li>
-                            <li>24/7 automated availability</li>
-                            <li>&lt;2 second response times</li>
-                        </ul>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/suba-suresh/AI-Restaurant-Reservation-Management-System" target="_blank" class="project-link">View Code</a>
-                    </div>
-                </div>
-        </div>
-             
-            
-
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-type">AI Voice System</div>
-                    <h3>VoiceAI Booking System</h3>
-                </div>
-                <div class="project-body">
-                    <p>Voice-driven reservation assistant integrating Vapi AI with Make.com orchestration, Google Calendar, and automated Gmail confirmations for Crown Street Food.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Vapi AI</span>
-                        <span class="tech-badge">Make.com</span>
-                        <span class="tech-badge">Google Calendar</span>
-                        <span class="tech-badge">Gmail API</span>
-                        <span class="tech-badge">NLP</span>
-                    </div>
-                    <div class="project-metrics">
-                        <ul>
-                            <li>Natural language processing</li>
-                            <li>Real-time calendar sync</li>
-                            <li>Automated email confirmations</li>
-                            <li>100% booking accuracy</li>
-                        </ul>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/suba-suresh/VoiceAI-Reservation-Booking-System" target="_blank" class="project-link">View Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-type">Desktop Application</div>
-                    <h3>Sales Tracking System</h3>
-                </div>
-                <div class="project-body">
-                    <p>Enterprise WPF application with MVVM architecture featuring Sales Analytics, Salary Management, and Expense Tracking modules with optimized SQL Server backend.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">C#</span>
-                        <span class="tech-badge">WPF</span>
-                        <span class="tech-badge">MVVM</span>
-                        <span class="tech-badge">Entity Framework</span>
-                        <span class="tech-badge">SQL Server</span>
-                    </div>
-                    <div class="project-metrics">
-                        <ul>
-                            <li>40% query performance improvement</li>
-                            <li>25% reduction in data errors</li>
-                            <li>Comprehensive CRUD operations</li>
-                            <li>Printable financial reports</li>
-                        </ul>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/suba-suresh" target="_blank" class="project-link">View Portfolio</a>
-                    </div>
-                </div>
-            </div>
-               
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience">
-        <h2>Work Experience</h2>
+        <h2>Professional Experience</h2>
         <div class="timeline">
             <div class="timeline-item">
                 <h3>Software Developer</h3>
-                <div class="company">SaiHarini Ltd</div>
-                <div class="date">September 2024 - Present | Royal Leamington Spa, UK</div>
+                <div class="company">Sai Harini Ltd</div>
+                <div class="date">Sep 2024 - Present | Royal Leamington Spa, UK</div>
                 <ul>
-                    <li>Architected enterprise Sales Tracking System using C#, WPF, Entity Framework 6, and SQL Server with MVVM pattern, achieving 40% faster query performance through optimized stored procedures</li>
-                    <li>Engineered two production AI voice reservation systems integrating ElevenLabs, Vapi, Zapier, Make.com, Google Calendar, and Gmail APIs, delivering 24/7 automated bookings with 60% cost reduction and zero double-bookings</li>
-                    <li>Built Client Intake Module with WinForms and SQL Server, reducing data entry errors by 25% and processing 200+ records with 99.9% accuracy</li>
-                    <li>Developed sophisticated webhook automation pipelines with multi-path routing, conditional branching for CRUD operations, and real-time calendar synchronization handling 500+ automated reservations</li>
+                    <li>Contribute to development of enterprise business applications using C# and .NET within established codebases, following existing architecture patterns and coding standards</li>
+                    <li>Build and consume RESTful APIs to support internal automation and system integration, working with JSON data formats and third-party API authentication</li>
+                    <li>Write, optimize, and maintain SQL Server queries and stored procedures, improving query performance through proper indexing and execution plan analysis</li>
+                    <li>Implement asynchronous programming patterns (async/await) to improve application responsiveness and handle background operations without blocking the UI</li>
+                    <li>Support WPF desktop application features following MVVM guidelines, implementing data binding, commands, and maintaining separation of concerns</li>
+                    <li>Work in Agile sprints participating in requirement discussions, code reviews, development, testing, and UAT with cross-functional teams</li>
+                    <li>Use Git/GitHub for version control, managing branches, resolving merge conflicts, and following team workflows for code collaboration</li>
                 </ul>
             </div>
 
             <div class="timeline-item">
                 <h3>QA Analyst</h3>
                 <div class="company">Solverines Technology & Solutions</div>
-                <div class="date">November 2022 - February 2024 | Chennai, India</div>
+                <div class="date">Nov 2022 - Feb 2024 | Chennai, India</div>
                 <ul>
-                    <li>Led comprehensive QA strategy for Certis Group SDB digital transformation project, ensuring SDLC compliance and quality gates across all environments</li>
-                    <li>Designed and executed 500+ functional, integration, regression, and API test cases using Postman, identifying 150+ defects and reducing resolution time by 35%</li>
-                    <li>Coordinated User Acceptance Testing (UAT) with stakeholders in Agile/Scrum sprints, ensuring 100% alignment with business requirements</li>
-                    <li>Validated security implementations including authentication flows, role-based access control, and PCI-DSS compliance</li>
+                    <li>Worked as part of Agile Scrum teams testing enterprise .NET applications for Certis Group's Safe Deposit Box digital transformation project</li>
+                    <li>Designed and executed 500+ functional, integration, regression, and UAT test cases across multiple releases and environments</li>
+                    <li>Performed API testing using Postman, validating backend logic, request/response payloads, and data flows between system components</li>
+                    <li>Used SQL queries to verify backend data integrity, identify defects, and validate business logic implementation</li>
+                    <li>Collaborated closely with developers to reproduce issues, validate fixes, and ensure code quality before production releases</li>
+                    <li>Gained strong exposure to application architecture, SDLC processes, and production release cycles in enterprise environments</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <h2>Get In Touch</h2>
         <div class="contact-grid">
@@ -1014,105 +345,69 @@
                 <h3>Contact Information</h3>
                 <div class="contact-item">
                     <i>📧</i>
-                    <div>
-                        <strong>Email</strong><br>
-                        <a href="mailto:subasuresh8095@gmail.com">subasuresh8095@gmail.com</a>
-                    </div>
+                    <div><strong>Email</strong><br><a href="mailto:subasuresh8095@gmail.com">subasuresh8095@gmail.com</a></div>
                 </div>
                 <div class="contact-item">
                     <i>📱</i>
-                    <div>
-                        <strong>Phone</strong><br>
-                        <a href="tel:+447465205785">+44 7465205785</a>
-                    </div>
+                    <div><strong>Phone</strong><br><a href="tel:+447465205785">+44 7465205785</a></div>
                 </div>
                 <div class="contact-item">
                     <i>📍</i>
-                    <div>
-                        <strong>Location</strong><br>
-                        Royal Leamington Spa, UK
-                    </div>
+                    <div><strong>Location</strong><br>Royal Leamington Spa, UK</div>
                 </div>
                 <div class="contact-item">
                     <i>💼</i>
-                    <div>
-                        <strong>Open To</strong><br>
-                        Full-time Software Developer Roles
-                    </div>
+                    <div><strong>Open To</strong><br>Full-time Software Developer Roles</div>
                 </div>
-                
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/subasuresh" target="_blank" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/subasuresh" target="_blank" class="social-link" title="LinkedIn">in</a>
                     <a href="https://github.com/suba-suresh" target="_blank" class="social-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="mailto:subasuresh8095@gmail.com" class="social-link" title="Email"><i class="fa-regular fa-message"></i></i></a>
+                    <a href="mailto:subasuresh8095@gmail.com" class="social-link" title="Email">@</a>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Suba Suresh. All rights reserved.</p>
-        <p>Built with passion for innovation and clean code.</p>
+        <p>Built with passion for quality code and continuous learning.</p>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Add active class to navigation on scroll
         window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
+            let c = '';
+            document.querySelectorAll('section').forEach(s => {
+                const st = s.offsetTop;
+                if (pageYOffset >= st - 200) c = s.getAttribute('id');
             });
-
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
+            document.querySelectorAll('nav a').forEach(l => {
+                l.classList.remove('active');
+                if (l.getAttribute('href').slice(1) === c) l.classList.add('active');
             });
         });
 
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        const obs = new IntersectionObserver(es => {
+            es.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
         document.querySelectorAll('.project-card, .timeline-item, .skill-category').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
+            obs.observe(el);
         });
     </script>
 </body>
