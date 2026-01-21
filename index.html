@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suba Suresh - Software Developer</title>
     <meta name="description" content="Junior .NET Software Developer with QA background specializing in C#, .NET, WPF, and SQL Server.">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -83,9 +89,31 @@
         .contact-item i { font-size: 1.5rem; color: var(--primary-color); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: #e0f2fe; border-radius: 50%; }
         .contact-item a { color: var(--text-dark); text-decoration: none; transition: color 0.3s; }
         .contact-item a:hover { color: var(--primary-color); }
-        .social-links { display: flex; gap: 1rem; margin-top: 2rem; }
-        .social-link { width: 50px; height: 50px; background: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.5rem; transition: all 0.3s; }
-        .social-link:hover { background: var(--secondary-color); transform: translateY(-5px); }
+       .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    background-color: #2563eb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.social-link:hover {
+    background-color: #1e40af;
+    transform: translateY(-3px);
+}
+
         footer { background: var(--dark-bg); color: white; text-align: center; padding: 2rem; }
         footer p { color: #94a3b8; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -359,11 +387,29 @@
                     <i>💼</i>
                     <div><strong>Open To</strong><br>Full-time Software Developer Roles</div>
                 </div>
+                
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/subasuresh" target="_blank" class="social-link" title="LinkedIn">in</a>
-                    <a href="https://github.com/suba-suresh" target="_blank" class="social-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="mailto:subasuresh8095@gmail.com" class="social-link" title="Email">@</a>
-                </div>
+    <a href="https://www.linkedin.com/in/subasuresh"
+       target="_blank"
+       class="social-link"
+       title="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+
+    <a href="https://github.com/suba-suresh"
+       target="_blank"
+       class="social-link"
+       title="GitHub">
+        <i class="fa-brands fa-github"></i>
+    </a>
+
+    <a href="mailto:subasuresh8095@gmail.com"
+       class="social-link"
+       title="Email">
+        <i class="fa-solid fa-envelope"></i>
+    </a>
+</div>
+
             </div>
         </div>
     </section>
